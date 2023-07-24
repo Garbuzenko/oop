@@ -1,8 +1,0 @@
-{
-    "screencastMode.hideSingleEditorCursorMoves": false,
-    "zenMode.hideActivityBar": true,
-    "zenMode.hideLineNumbers": true,
-    "zenMode.hideTabs": true,
-    "notebook.diff.ignoreOutputs": false,
-    "editor.wordWrap": "on"
-}
