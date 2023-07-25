@@ -17,4 +17,21 @@ export default class Character {
     this.attack *= 1.2;
     this.defense *= 1.2;
   }
+
+  damage(points) {
+    if (points < 0) {
+      throw new Error('урон не может быть отрицательным');
+    }
+    this.health -= points*(1-this.defense/100);
+    if (this.health < 0){
+      this.health = 0;
+    }
+  }
+
+  checkType(type){
+    const types = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
+    if (types.indexOf( type ) == -1){
+      throw new Error('Тип задан неверно');
+    }
+  }
 }

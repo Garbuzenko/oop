@@ -4,6 +4,7 @@ export default class Magician extends Character {
   constructor(name) {
     super(name);
     this.type = 'Magician';
+    this.checkType(this.type)
     this.attack = 10;
     this.defense = 40;
   }

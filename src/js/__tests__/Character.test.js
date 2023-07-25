@@ -29,6 +29,30 @@ test('нельзя повысить левел умершего', () => {
   expect(test).toThrow('нельзя повысить левел умершего');
 });
 
+test('Наносим урон', () => {
+  const description = new Character('warrior');
+  description.health = 50;
+  description.attack = 10;
+  description.defense = 10;
+  description.damage(10);
+  const result = {
+    name: 'warrior', health: 41, level: 1, attack: 10, defense: 10,
+  };
+  console.log(description);
+  expect(description).toEqual(result);
+});
+
+test('Наносим отрицательный урон', () => {
+  const description = new Character('warrior');
+  description.health = 50;
+  description.attack = 10;
+  description.defense = 10;
+  description.damage(-10);
+  expect(description).toThrow('урон не может быть отрицательным');
+});
+
+
+
 test('Получим ошибку имени', () => {
   const description = () => new Character('B');
   expect(description).toThrow('Имя должно быть сткрой от 2 до 10 символов включительно');
