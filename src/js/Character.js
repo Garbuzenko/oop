@@ -1,9 +1,17 @@
 export default class Character {
-  constructor(name) {
+  constructor(name, type) {
+    const types = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
+   
     if (name === undefined || name.length < 2 || name.length > 10) {
       throw new Error('Имя должно быть сткрой от 2 до 10 символов включительно');
     }
     this.name = name;
+
+    if (!types.includes(type)){
+      throw new Error('Тип задан неверно');
+    }
+    this.type = type;
+
     this.level = 1;
     this.health = 100;
   }
@@ -28,10 +36,5 @@ export default class Character {
     }
   }
 
-  checkType(type){
-    const types = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
-    if (types.indexOf( type ) == -1){
-      throw new Error('Тип задан неверно');
-    }
-  }
+
 }
