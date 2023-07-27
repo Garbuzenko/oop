@@ -42,15 +42,19 @@ test('Наносим урон', () => {
   expect(description).toEqual(result);
 });
 
+
 test('Наносим отрицательный урон', () => {
-  const description = new Character('warrior', 'Bowman');
-  description.health = 50;
-  description.attack = 10;
-  description.defense = 10;
-  description.damage(-10);
-  // console.log(description);
-  expect(description).toThrow('урон не может быть отрицательным');
+  function test() {
+    const description = new Character('warrior', 'Bowman');
+    description.health = 50;
+    description.attack = 10;
+    description.defense = 10;
+    return description.damage(-10);
+  }
+  expect(test).toThrow('урон не может быть отрицательным');
 });
+
+
 
 test('Получим ошибку имени', () => {
   const description = () => new Character('B', 'Bowman');
